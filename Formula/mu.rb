@@ -7,8 +7,9 @@ class Mu < Formula
   homepage "https://github.com/juddmon/homebrew-mu"
   #url "https://github.com/stelligent/mu/releases/download/v0.2.6-develop/mu-linux-amd64"
   url "https://github.com/juddmon/homebrew-mu/archive/master.tar.gz"
+  url "https://github.com/juddmon/homebrew-mu/raw/master/mu-darwin-amd64"
   version "v0.2.6-develop"
-  sha256 "2138e90ca319e4fd82cbcbdd2b3172689b02181907823f8161017525b3aa344a"
+  sha256 "3ef4035ffbf96a0e3746f5737335c3390d798f8f94221d0bfbc41182387ebf91"
 
   # depends_on "cmake" => :build
 
@@ -25,7 +26,7 @@ class Mu < Formula
     # system "cmake", ".", *std_cmake_args
     #system "make", "install" # if this fails, try separate make/make install steps
 	#make install
-	bin.install "mu-linux-amd64"
+	bin.install "mu-darwin-amd64"
   end
 
   test do
