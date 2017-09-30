@@ -6,10 +6,15 @@ class Mu < Formula
   desc "A full-stack DevOps on AWS tool"
   homepage "https://github.com/juddmon/homebrew-mu"
   #url "https://github.com/stelligent/mu/releases/download/v0.2.6-develop/mu-linux-amd64"
-  url "https://github.com/juddmon/homebrew-mu/archive/master.tar.gz"
-  url "https://github.com/juddmon/homebrew-mu/raw/master/mu-darwin-amd64"
+  #url "https://github.com/juddmon/homebrew-mu/archive/master.tar.gz"
+  if OS.mac?
+	url "https://github.com/juddmon/homebrew-mu/raw/master/mu-darwin-amd64"
+	sha256 "3ef4035ffbf96a0e3746f5737335c3390d798f8f94221d0bfbc41182387ebf91"
+  elsif OS.linux?
+	url "https://github.com/juddmon/homebrew-mu/raw/master/mu-linux-amd64"
+	sha256 "0345dd9a3626231651e221b0b86b56d1c28d13c17ddf315bbf6bfdf38d7f6993"
+  end
   version "v0.2.6-develop"
-  sha256 "3ef4035ffbf96a0e3746f5737335c3390d798f8f94221d0bfbc41182387ebf91"
 
   # depends_on "cmake" => :build
 
@@ -26,7 +31,13 @@ class Mu < Formula
     # system "cmake", ".", *std_cmake_args
     #system "make", "install" # if this fails, try separate make/make install steps
 	#make install
-	bin.install "mu-darwin-amd64"
+	if OS.mac?
+	  bin.install "mu-darwin-amd64"
+	  mv "#{bin}/mu-darwin-amd64", "#{bin}/mu"
+	elsif OS.linux?
+	  bin.install "mu-linux-amd64"
+	  mv "#{bin}/mu-linux-amd64", "#{bin}/mu"
+	end
   end
 
   test do
