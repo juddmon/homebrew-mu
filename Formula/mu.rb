@@ -2,7 +2,7 @@
 #                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
-class HomebrewMu < Formula
+class Mu < Formula
   desc "A full-stack DevOps on AWS tool"
   homepage "https://github.com/juddmon/homebrew-mu"
   #url "https://github.com/stelligent/mu/releases/download/v0.2.6-develop/mu-linux-amd64"
