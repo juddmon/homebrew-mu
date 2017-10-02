@@ -5,27 +5,24 @@
 class Mu < Formula
   desc "A full-stack DevOps on AWS tool"
   homepage "https://github.com/juddmon/homebrew-mu"
-  #url "https://github.com/stelligent/mu/releases/download/v0.2.6-develop/mu-linux-amd64"
-  #url "https://github.com/juddmon/homebrew-mu/archive/master.tar.gz"
-  #url "https://github.com/juddmon/homebrew-mu/raw/master/binaries.tar.gz"
-  #sha256 "29d9dd3a3246989d632ca312e44d5f620d38238a3f3f7f38e902ee1e0349f20f"
   if OS.mac?
-	url "https://github.com/juddmon/homebrew-mu/raw/master/mu-darwin-amd64"
-	sha256 "3ef4035ffbf96a0e3746f5737335c3390d798f8f94221d0bfbc41182387ebf91"
+	url "https://github.com/stelligent/mu/releases/download/v0.2.5/mu-darwin-amd64"
+	sha256 "8e97fb5acc855c19620d26966ccde9f22ade43e8d5ed57f32e6c5b8703b14c29"
   elsif OS.linux?
-	url "https://github.com/juddmon/homebrew-mu/raw/master/mu-linux-amd64"
-	sha256 "0345dd9a3626231651e221b0b86b56d1c28d13c17ddf315bbf6bfdf38d7f6993"
+	url "https://github.com/stelligent/mu/releases/download/v0.2.5/mu-linux-amd64"
+	sha256 "c2cec1b8af7c591e823881789104e6b9830e3dea2ec76c9fe2f447ed5db9bf3b"
   end
+  version "v0.2.5"
   devel do
 	if OS.mac?
-	  url "https://github.com/stelligent/mu/releases/download/v0.2.5/mu-darwin-amd64"
-	  sha256 "8e97fb5acc855c19620d26966ccde9f22ade43e8d5ed57f32e6c5b8703b14c29"
+	  url "https://github.com/stelligent/mu/releases/download/v0.2.6-develop/mu-darwin-amd64"
+	  sha256 "3ef4035ffbf96a0e3746f5737335c3390d798f8f94221d0bfbc41182387ebf91"
 	elsif OS.linux?
-	  url "https://github.com/stelligent/mu/releases/download/v0.2.5/mu-linux-amd64"
-	  sha256 "c2cec1b8af7c591e823881789104e6b9830e3dea2ec76c9fe2f447ed5db9bf3b"
+	  url "https://github.com/stelligent/mu/releases/download/v0.2.6-develop/mu-linux-amd64"
+	  sha256 "0345dd9a3626231651e221b0b86b56d1c28d13c17ddf315bbf6bfdf38d7f6993"
 	end
+	version "v0.2.6-develop"
   end
-  version "v0.2.6-develop"
 
   # depends_on "cmake" => :build
 
@@ -61,6 +58,6 @@ class Mu < Formula
     #
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "true"
+    system "#{bin}/mu" ,"--version"
   end
 end
